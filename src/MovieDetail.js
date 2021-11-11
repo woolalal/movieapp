@@ -39,8 +39,9 @@ const MovieDetail = () => {
             </div>
             <h3 style={{textAlign:"center", margin:"1.5rem"}}>Similar Movies</h3>
             <div className="similarmovies-container">
-                {details.similars?.map(similar => (
-                    <SimilarMovies key={similar.id} similar={similar}/>
+                {details.similars?.map((similar, index) => (
+                    index < 3 && 
+                    <SimilarMovies key={similar.id} similar={similar}/>                   
                 ))}
             </div>
         </div>

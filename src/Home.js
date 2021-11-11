@@ -1,5 +1,6 @@
 import './App.css';
 import React, {useState, useEffect} from 'react';
+import {useParams} from 'react-router-dom'
 import Movies from './Movies';
 
 const Home = () => {
@@ -8,9 +9,10 @@ const Home = () => {
     const [confirmSearch, setConfirmSearch] = useState("iron man");
     const [items, setItems] = useState([]);
     const [details, setDetails] = useState([]);
+    const {id} = useParams();
 
     useEffect(() => {
-        // getData();
+        getData();
     }, [confirmSearch]);
 
     async function getData(){
