@@ -4,6 +4,44 @@
   box-sizing: border-box;
 }
 
+/* NavBar */
+.navbar-container{
+  text-align: center;
+}
+.navbar-list{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+}
+
+.navbar-list li {
+  padding: 20px;
+}
+
+.navbar-list li a{
+  text-decoration: none;
+}
+
+/* Landing page */
+.text-animation{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8%;
+}
+.typed-text{
+  font-size: 2rem;
+}
+
+.typed-cursor{
+  opacity: 1;
+  animation: typedjsBlink 0.7s infinite;
+  -webkit-animation: typedjsBlink 0.7s infinite;
+  animation: typedjsBlink 0.7s infinite;
+  font-size: 2rem;
+}
+
 /* Movies.js */
 .form-container{
   text-align: center;

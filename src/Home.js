@@ -2,6 +2,7 @@ import './App.css';
 import React, {useState, useEffect} from 'react';
 import {useParams} from 'react-router-dom'
 import Movies from './Movies';
+import Navbar from './Navbar';
 
 const Home = () => {
     const MOVIEKEY = 'k_ol79wlj8';
@@ -34,6 +35,7 @@ const Home = () => {
     
     return (
         <div className="container">
+            <Navbar/>
             <div className="form-container">
             <h2 className="enter-message" style={{margin: "1.5rem", fontSize: "30px", fontFamily: "Roboto, sans-serif"}}>Enter a movie name here</h2>
             <form onSubmit={finalSearch}>

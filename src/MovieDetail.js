@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { useParams, Link } from 'react-router-dom';
 import SimilarMovies from './SimilarMovies';
+import NavBar from './Navbar';
 
 
 const MovieDetail = () => {
@@ -21,6 +22,7 @@ const MovieDetail = () => {
 
     return (
         <div className="moviedetails">
+            <NavBar />
             <div className="details-container">
                 <h3 style={{marginBottom:"1rem"}}>Movie Details</h3>
                 <img src={details.image} className="movie-image"></img>
