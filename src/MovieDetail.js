@@ -10,7 +10,7 @@ const MovieDetail = () => {
 
     useEffect(() => {
         getDetails();
-    }, []);
+    }, [id]);
 
     async function getDetails(){
         const res = await fetch(`https://imdb-api.com/en/API/Title/k_ol79wlj8/${id}/FullActor,Posters`);

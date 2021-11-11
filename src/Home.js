@@ -50,7 +50,7 @@ const Home = () => {
             </div>
             <div className="grid-movie">
             {items.map(items => (
-                <Movies items={items}/>
+                <Movies key={items.id} items={items}/>
             ))}
             </div>
         </div>
