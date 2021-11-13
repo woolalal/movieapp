@@ -8,6 +8,11 @@
 .navbar-container{
   text-align: center;
 }
+
+.logo-img{
+  width: 5%;
+}
+
 .navbar-list{
   display: flex;
   justify-content: center;
@@ -24,6 +29,12 @@
 }
 
 /* Landing page */
+.animation-image-container{
+  background: url('./images/moviesbackground.jpeg') center center no-repeat;
+  background-size: cover;
+  padding: 15% 15%;
+}
+
 .text-animation{
   display: flex;
   justify-content: center;
@@ -31,7 +42,9 @@
   padding: 8%;
 }
 .typed-text{
-  font-size: 2rem;
+  font-size: 3rem;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .typed-cursor{
@@ -39,7 +52,31 @@
   animation: typedjsBlink 0.7s infinite;
   -webkit-animation: typedjsBlink 0.7s infinite;
   animation: typedjsBlink 0.7s infinite;
-  font-size: 2rem;
+  font-size: 3rem;
+  color: #fff;
+}
+
+.in-theaters-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  padding: 0 2%;
+  text-align: center;
+}
+
+.theater-container{
+  margin: 1rem;
+  border: 1px solid black;
+  padding: 8%;
+  background-color: black;
+}
+
+.theater-container a{
+  text-decoration: none;
+  color: #cca01b;
+}
+
+.theater-container a:hover{
+  color: #cca01b;
 }
 
 /* Movies.js */
@@ -70,11 +107,19 @@
 .movie-container{
   text-align: center;
   width: 70%;
-  padding: 5%;
+  padding: 5% 2%;
   background-color: white;
   margin: 3rem auto;
   box-shadow: 0px 5px 20px rgb(71, 71, 71);
-  
+}
+
+.movie-container h3{
+  margin: 1rem;
+}
+
+.movie-container a{
+  text-decoration: none;
+  color: #cca01b;
 }
 
 /* Movie Details */
@@ -103,4 +148,35 @@
 
 .similarmovies{
   margin: 1rem;
+  border: 1px solid black;
+  padding: 3% 5%;
+  background-color: black;
+  color: white;
+}
+
+.similarmovies a{
+  text-decoration: none;
+  color: #cca01b;
+}
+
+.similarmovies a:hover{
+  color: #fff;
+}
+/* Footer */
+.footer-container{
+  padding: 3%;
+  background-color: black;
+  text-align: center;
+}
+.footer-logo{
+  width: 3%;
+  display: block;
+  margin: auto;
+}
+.footer-icon{
+  color: white;
+  margin: 20px;
+}
+.footer-text{
+  color: #fff;
 }

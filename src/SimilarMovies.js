@@ -5,7 +5,7 @@ const SimilarMovies = ({similar}) => {
     return (
         <div className="similarmovies">
             <img src={similar.image} className="movie-image"></img>
-            <h5>
+            <h5 style={{margin:'1rem'}}>
             <Link to={`/details/${similar.id}`}>{similar.fullTitle}</Link>
             </h5>
             <h5>Rating: {similar.imDbRating}</h5>

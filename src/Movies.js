@@ -12,7 +12,7 @@ const Movies = ({items}) => {
         //     ))}
         // </div>
         <div className="movie-container">
-            <img src={items.image} className="movie-image" alt="Movie Image"></img>
+            <img src={items.image} className="movie-image" alt="Movie Image" style={{width:'70%'}}></img>
             <h3>
                 <Link to={`/details/${items.id}`}>{items.title}</Link>
             </h3>

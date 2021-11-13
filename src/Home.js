@@ -13,7 +13,7 @@ const Home = () => {
     const {id} = useParams();
 
     useEffect(() => {
-        getData();
+        // getData();
     }, [confirmSearch]);
 
     async function getData(){
