@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 const SimilarMovies = ({similar}) => {
     return (
         <div className="similarmovies">
-            <img src={similar.image} className="movie-image"></img>
+            <img src={similar.image} style={{width:'88%'}}></img>
             <h5 style={{margin:'1rem'}}>
             <Link to={`/details/${similar.id}`}>{similar.fullTitle}</Link>
             </h5>

@@ -2,9 +2,14 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
 }
 
 /* NavBar */
+.navbar-brand span{
+  font-family: 'Archivo', sans-serif !important;
+  font-size: 2rem;
+}
 .navbar-container{
   text-align: center;
 }
@@ -56,27 +61,74 @@
   color: #fff;
 }
 
+.middle-container{
+  background-color: #454545;
+  padding: 3%;
+  color: #FFF;
+}
+
+.middle-container a{
+    text-decoration: none;
+    color: #FFF;
+}
+
+.movie-card{
+  box-shadow: 0 2px 4px rgb(0 0 0 / 40%), 0 7px 13px -3px rgb(0 0 0 / 30%), inset 0 -3px 0 rgb(0 0 0 / 20%);
+  margin: 1rem auto;
+  border-radius: 12px;
+  background-color: #262525;
+}
+
+.poster-overlay{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: rgb(0, 0, 0,.75);
+  color: white;
+  text-align: center;
+  backdrop-filter: blur(3px);
+}
+
+.movie-card:hover .poster-overlay {
+  opacity: 1;
+}
+
+.movieimage-card{
+  width: 88% !important;
+  margin: 1rem auto 0 !important;
+}
+
 .in-theaters-container{
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  padding: 0 2%;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 1rem;
+  gap: 1rem;
+  /* padding: 0 5%; */
   text-align: center;
 }
 
 .theater-container{
   margin: 1rem;
-  border: 1px solid black;
+  border-radius: 12px;
   padding: 8%;
-  background-color: black;
+  background-color: #262525;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 40%), 0 7px 13px -3px rgb(0 0 0 / 30%), inset 0 -3px 0 rgb(0 0 0 / 20%);
 }
 
 .theater-container a{
   text-decoration: none;
-  color: #cca01b;
+  /* color: #cca01b; */
+  color: #FFF;
 }
 
 .theater-container a:hover{
-  color: #cca01b;
+  color: #FFF;
 }
 
 /* Movies.js */
@@ -124,25 +176,32 @@
 
 /* Movie Details */
 .moviedetails{
-  padding: 3%;
+  /* padding: 3%; */
 }
 
 .details-container h5{
   margin: 1rem;
+  color:#fff;
 }
 .movie-image{
-  width: 30%;
+  /* width: 30%; */
+  max-width: 340px;
 }
 
 .details-container{
   margin: auto;
   text-align: center;
+  background-color: #262525;
+  padding: 3%;
+  border-radius: 6px;
 }
 
 /* Similar Movies */
 .similarmovies-container{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 1rem;
+  gap: 1rem;
   text-align: center;
 }
 

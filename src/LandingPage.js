@@ -1,15 +1,19 @@
 import React, {useState, useEffect} from 'react'
 import Typed from 'typed.js';
-import Navbar from './Navbar';
+import Navbars from './Navbar';
 import InTheaters from './InTheaters';
 import Footer from './Footer';
 import {Carousel} from 'react-bootstrap';
+import Spinner from './images/spinner.gif';
 
 const LandingPage = () => {
     const el = React.useRef(null);
     const typed = React.useRef(null);
     const [movies, setMovies] = useState([]);
+    const [popular, setPopular] = useState([]);
     const [boxOffice, setBoxOffice] = useState([]);
+    const [isLoading, setLoading] = useState(true);
+    const [optionVal, setOptionVal] = useState('intheaters');
 
     // React.useEffect(() => {
     //     const options = {
@@ -30,12 +34,31 @@ const LandingPage = () => {
     useEffect(() => {
         // getMovies();
         // topBoxOffice();
-    }, [])
+        filterHandlers();
+    }, [optionVal])
 
+    const filterHandlers = () => {
+        switch(optionVal){
+            case 'intheaters':
+                getMovies();
+                break;
+            case 'popular':
+                getPopular();
+                break;
+            case 'comingsoon':
+                getComing();
+                break;
+            default:
+                getMovies();
+                break;
+        }
+    }
     async function getMovies(){
         const res = await fetch(`https://imdb-api.com/en/API/InTheaters/k_ol79wlj8`);
         const data = await res.json();
         setMovies(data.items);
+        console.log(data.items);
+        setLoading(false);
     }
 
     const topBoxOffice = async () => {
@@ -45,23 +68,52 @@ const LandingPage = () => {
         console.log(data);
     }
 
+    const getPopular = async () => {
+        const res = await fetch(`https://imdb-api.com/en/API/MostPopularMovies/k_ol79wlj8`);
+        const data = await res.json();
+        setMovies(data.items);
+        console.log(data.items);
+    }
+
+    const getComing = async () => {
+        const res = await fetch(`https://imdb-api.com/en/API/ComingSoon/k_ol79wlj8`);
+        const data = await res.json();
+        setMovies(data.items)
+        console.log(data.items);
+    }
+
+    const statusHandler = (evt) => {
+        setOptionVal(evt.target.value);
+    }
+
     return (
         <div className='landingpage-container'>
-            <Navbar />
+            <Navbars />
             <div className='animation-image-container'>
                 {/* <div className='text-animation'>
                 <span className="typed-text" style={{ whiteSpace: 'pre' }} ref={el} />
                 </div> */}
             </div>
-            <h2 style={{margin:'2rem', color:'#cca01b'}}>Explore Movies & TV shows</h2>
-            <div style={{padding:"0 2.5rem"}}>
-                <h3>In Theaters Now</h3>
-                <hr style={{width:"10%", color:"#cca01b", border:"1px solid"}}/>
-            </div>
-            <div className='in-theaters-container'>
-                {movies.map(movie => {
-                    return <InTheaters key={movie.id} movie = {movie} />
-                })}
+            <div className="middle-container">
+                <h2 style={{margin:'2rem', color:'#ff983d'}}>Explore Movies & TV shows</h2>
+                <div style={{padding:"0 2.5rem"}}>
+                    <h3 style={{display:'inline'}}>In Theaters Now</h3>
+                    <div style={{display:'inline', float:'right'}}>
+                        <span style={{marginRight:'10px', fontFamily:'Montserrat', fontSize:'20px'}}>Display By:</span>
+                        <select onChange={statusHandler} style={{border:'1px solid black', borderRadius:'4px', background:'black', color:'#ff983d', width:'120px', padding:'1.5%'}}>
+                            <option value="intheaters">In Theaters</option>
+                            <option value="popular">Popular</option>
+                            <option value="comingsoon">Upcoming</option>
+                        </select>
+                    </div>
+                    <hr style={{width:"10%", color:"#00c4ff", border:"1.5px solid"}}/>
+                </div>
+                <div className='in-theaters-container'>
+                    {movies.map((movie,index) => {
+                        return isLoading ? <img src={Spinner} style={{width:'10%', margin:'auto'}}></img> 
+                        : index < 10 && <InTheaters key={movie.id} movie = {movie} />
+                    })}
+                </div>
             </div>
             <div style={{padding:"2rem 2.5rem"}}>
                 <h3>Top Box Office</h3>
@@ -72,10 +124,6 @@ const LandingPage = () => {
                 {boxOffice.map(office => (
                     <Carousel.Item>
                     <img src={office.image} style={{width:'100%', textAlign:'center', height:'100vh'}}></img>
-                    {/* <Carousel.Caption>
-                    <h3>{office.title}</h3>
-                    <p>{office.gross}</p>
-                    </Carousel.Caption> */}
                     </Carousel.Item>
                 ))}
                 </Carousel>
